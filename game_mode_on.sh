@@ -1,6 +1,6 @@
 #!/bin/bash
 # 
-pkexec chmod ugo+rwx /sys/devices/system/cpu/intel_pstate/min_perf_pct /sys/class/drm/card0/gt_min_freq_mhz
+echo "toor" | sudo -S chmod ugo+rwx /sys/devices/system/cpu/intel_pstate/min_perf_pct /sys/class/drm/card0/gt_min_freq_mhz
 
 cpu_off=0
 gpu_off=0
@@ -8,7 +8,7 @@ cpu=$(cat /sys/devices/system/cpu/intel_pstate/min_perf_pct)
 gpu=$(cat /sys/class/drm/card0/gt_min_freq_mhz)
 
 
-if [ $cpu -ge 50 ]; then
+if [ $cpu -ge 30 ]; then
    echo 12 > /sys/devices/system/cpu/intel_pstate/min_perf_pct
    if [ $? -eq 0 ]; then
       cpu_off=1
@@ -22,7 +22,7 @@ if [ $cpu -ge 50 ]; then
 
 
    if [ $cpu_off -eq 1 ] || [ $gpu_off -eq 1 ]; then
-      notify-send 'Game mode OFF' 'See ya later'
+      notify-send '(˘︶˘).｡*♡' 'See ya later'
    elif [ $cpu_off -eq 0 ] || [ $gpu_off -eq 0 ]; then
       notify-send 'Failed' 'CPU and GPU failed to set default'
    elif [ $cpu_off -eq 0 ]; then
@@ -44,7 +44,7 @@ else
    fi
 
      if [ $cpu_off -eq 2 ] || [ $gpu_off -eq 2 ]; then
-      notify-send 'Game mode ON' 'VAMOSSSSS'
+      notify-send '｡◕‿◕｡' 'VAMOS'
    elif [ $cpu_off -eq 0 ] || [ $gpu_off -eq 0 ]; then
       notify-send 'Failed' 'CPU and GPU failed to set to high freq'
    elif [ $cpu_off -eq 0 ]; then
