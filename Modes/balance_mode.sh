@@ -30,7 +30,7 @@ fi
 
 
 if [ $cpu_off -eq 1 ] || [ $gpu_off -eq 1 ]; then
-    notify-send 'Balanced' 'As all things should be in Universe.'
+    notify-send 'Balanced' 'As all things should be in Universe. ʕ´• ᴥ•̥`ʔ'
 elif [ $cpu_off -eq 0 ] || [ $gpu_off -eq 0 ]; then
     notify-send 'Failed' 'CPU and GPU failed to set default'
 elif [ $cpu_off -eq 0 ]; then
